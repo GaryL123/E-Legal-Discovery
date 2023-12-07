@@ -1,0 +1,36 @@
+﻿<Page x:Class="Login_WPF.EmailManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Email Management">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <!-- Email details section -->
+            <ColumnDefinition Width="*"/>
+            <!-- Email list section -->
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Upload Emails" Click="UploadEmails_Click" Margin="0,0,0,10" Grid.ColumnSpan="2"/>
+
+        <!-- Email details -->
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="{Binding SelectedEmail.SenderAddress}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding SelectedEmail.ReceiverAddress}"/>
+            <TextBlock Text="{Binding SelectedEmail.DateSent}"/>
+            <TextBlock Text="{Binding SelectedEmail.Subject}"/>
+            <TextBlock Text="{Binding SelectedEmail.EmailContent}" TextWrapping="Wrap"/>
+            <!-- Add additional details here -->
+        </StackPanel>
+
+        <!-- Email list -->
+        <ListView x:Name="EmailsListView" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Emails}" DisplayMemberPath="FilePath" SelectionChanged="EmailsListView_SelectionChanged">
+            <!-- ListView style and template can be customized as needed -->
+        </ListView>
+    </Grid>
+</Page>

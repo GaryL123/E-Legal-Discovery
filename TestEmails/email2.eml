@@ -1,0 +1,202 @@
+Delivered-To: hsallaku01@manhattan.edu
+Received: by 2002:ac8:12c6:0:b0:416:526a:68a1 with SMTP id b6csp4077524qtj;
+        Tue, 28 Nov 2023 05:54:45 -0800 (PST)
+X-Received: by 2002:a05:6808:1385:b0:3b8:6057:b083 with SMTP id c5-20020a056808138500b003b86057b083mr11815990oiw.9.1701179684578;
+        Tue, 28 Nov 2023 05:54:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701179684; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xu7aJ3Ff8cYKVV24dwwTpDcvuK+8G1w5NRCmqchuzoYJTfQ58t813/S3UQOdEcUT6c
+         /wcFYtFlZzV6Ifj9hnovBGIYQWOwzLA7OV4ZWLpvDrrmAVVc4NfyErx6pVqHtCNOfZ/o
+         wQufH4/a4fODIhTDX1qjbZyEaya7Nlt8ruDojzb1KDcSMf25/S+UaXCShFn4X2JZzafj
+         77qy7PDJ9WP4dwVPeQgJ8hHWSJok91ltL217/Y5G1QVgAiFrcvCi+B07E8hc3EJPkQes
+         zlQL4OStg+1JO2M3LtVAiurf0/p8vDjgzMxBBZU+cS8VMyexE+fqtrCkbH9ROh6g8ppg
+         CyHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=HMZHiOUT2sHT+DuRZ0W9g5dC7+/e/xYXQBzLvfeqdBQ=;
+        fh=G0Y7s1zS4RkbqkKtpV2ifiLb0HPx8BuFgwNdnXb84Dc=;
+        b=zWHLTbgAPHV4KAb3BBko4KVoIqKwA6Vskp7HVD24cNDQ6rDAOWffv5+GwfOCtSuj6l
+         V0+ud1rSGpT/bkDXsj2xZpSR7Zcsyp2ecwlAt3+tuf3yTv0qzKHDzop5HWmN3Qgf1R2d
+         Fq+/4HnrFpfrhQ5DvqxCNqPgInwBIOWo6KfBSeEmkYkYlqXeQWPyn5QfSXNS0u6PqTqv
+         UOrYNzlF4uiNWI6mh49iBFyCcHxkhAvGP1zARLcTxnZgVPJirmKrTmRFSWqG77/xz16/
+         rl5SZdf1IawYoykhqFD5hzy4jTC1K8Jjb7WjbmiW0f1OhsM6XCdOCMo2sTITRfNZWGUY
+         FCKQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@manhattan.edu header.s=google header.b=RX53UiIM;
+       spf=pass (google.com: domain of rgray01@manhattan.edu designates 209.85.220.41 as permitted sender) smtp.mailfrom=rgray01@manhattan.edu;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=manhattan.edu
+Return-Path: <rgray01@manhattan.edu>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id i13-20020a056808030d00b003b847d429d1sor2776590oie.16.2023.11.28.05.54.44
+        for <hsallaku01@manhattan.edu>
+        (Google Transport Security);
+        Tue, 28 Nov 2023 05:54:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of rgray01@manhattan.edu designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@manhattan.edu header.s=google header.b=RX53UiIM;
+       spf=pass (google.com: domain of rgray01@manhattan.edu designates 209.85.220.41 as permitted sender) smtp.mailfrom=rgray01@manhattan.edu;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=manhattan.edu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=manhattan.edu; s=google; t=1701179684; x=1701784484; darn=manhattan.edu;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HMZHiOUT2sHT+DuRZ0W9g5dC7+/e/xYXQBzLvfeqdBQ=;
+        b=RX53UiIMMYAyPMlzsZJAPAyRA86Z3VW66mjG/c9NWOWOKfxI4Ft+JE1SWPyXoe2xRP
+         QJvZFHBDDgG8FYpE990lpuJiFIWtbYLNwmkdCLXFowMxo4BZxObznzFj4tF2e8DqxxvK
+         5bkSkEbmy7ynju54Q8X768loJIpN8mwzA+/2c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701179684; x=1701784484;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=HMZHiOUT2sHT+DuRZ0W9g5dC7+/e/xYXQBzLvfeqdBQ=;
+        b=gRIrwJUnOoEBS3jbUpzjSoGAMi5WTEWHotPXr6W1CM5fvJe/YKigP6PGFBesodzX64
+         6Cpb2ttwfaeH07KB+pOKFoMYrSPJ6XLOZOTOT6CKtPcf21EtPLt67U6HNNfKaWdPyEi5
+         t/U+hQrbkclFpj8jsZZqqe0kaI+6YlNS7zgPdIA1DxNaLUjv3Wq6efx3FCRgiEmoA7Tz
+         irmBoX1lYoumXRVk8mEclG9iK00RXQicJkg1coKMK50wmSNzw38hdJ77PbgK+GjwMYwO
+         nU7odXHur/LTpeIHDC4vZthSI2UItZ61RSWzi59EaCTQCRPdRsQ8+//oHt0/cy9ssqgR
+         uVXw==
+X-Gm-Message-State: AOJu0Ywj4eIQiYxRCfJGbB61knhS3/s15pM+XNI2d23jUJ+7lTKum31w
+	1M7lPsy1lwxSROycmVPNwPs1z9yFqa1tc3xIIj5NAf5c
+X-Google-Smtp-Source: AGHT+IE1xe1dAWDS9OkNT//7h5c83pxi4HA5eWX2uxlQ6LJUw2yjrKUggLRwgEva0VgR7bKW8Mmywg==
+X-Received: by 2002:a05:6808:180b:b0:3b8:4127:bb67 with SMTP id bh11-20020a056808180b00b003b84127bb67mr18279419oib.4.1701179683886;
+        Tue, 28 Nov 2023 05:54:43 -0800 (PST)
+Return-Path: <rgray01@manhattan.edu>
+Received: from CY8PR02MB9595.namprd02.prod.outlook.com ([2603:1036:306:203c::5])
+        by smtp.gmail.com with ESMTPSA id a2-20020a63d402000000b005b96b42f7ccsm9281150pgh.82.2023.11.28.05.54.43
+        for <hsallaku01@manhattan.edu>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Nov 2023 05:54:43 -0800 (PST)
+From: Ronald Gray <rgray01@manhattan.edu>
+To: "hsallaku01@manhattan.edu" <hsallaku01@manhattan.edu>
+Subject: Commuter Employment Survey
+Thread-Topic: Commuter Employment Survey
+Thread-Index: AQHaIgJkzfrbPPb7CkC92QDyjELcNA==
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Tue, 28 Nov 2023 13:54:24 +0000
+Message-ID:
+	<CY8PR02MB959548BF9754CB369FE0BBB6F3BCA@CY8PR02MB9595.namprd02.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+Content-Type: multipart/alternative;
+	boundary="_000_CY8PR02MB959548BF9754CB369FE0BBB6F3BCACY8PR02MB9595namp_"
+MIME-Version: 1.0
+
+--_000_CY8PR02MB959548BF9754CB369FE0BBB6F3BCACY8PR02MB9595namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Haki,
+
+We hope this letter finds you well as you navigate your academic journey at=
+ Manhattan College. As part of our ongoing commitment to enhancing the over=
+all student experience, we are reaching out to you to invite you to partici=
+pate in a short survey on employment experiences among commuter students.
+
+Your insights and feedback are crucial in helping us understand the unique =
+challenges and opportunities commuter students face regarding employment. B=
+y sharing your experiences, you contribute valuable information that will g=
+uide us in developing initiatives and support services tailored to your nee=
+ds.
+
+Survey Details:
+- Survey Link: Commuter Employment Survey<https://docs.google.com/forms/d/e=
+/1FAIpQLScnnMalaZe8TQT78Nhme4YBFuqQuw2pWEudNfV7D0-Jt0vJ8g/viewform?usp=3Dsf=
+_link>
+Or cut and paste the link below: https://docs.google.com/forms/d/e/1FAIpQLS=
+cnnMalaZe8TQT78Nhme4YBFuqQuw2pWEudNfV7D0-Jt0vJ8g/viewform?usp=3Dsf_link.<ht=
+tps://docs.google.com/forms/d/e/1FAIpQLScnnMalaZe8TQT78Nhme4YBFuqQuw2pWEudN=
+fV7D0-Jt0vJ8g/viewform?usp=3Dsf_link>
+
+- Survey Duration: Under 4 minutes
+
+Your participation in this survey is voluntary, and your responses will rem=
+ain confidential. The aggregated data will be used solely for research purp=
+oses and will be reported in a way that ensures the anonymity of all partic=
+ipants.
+
+The survey will be open until December 16, 2023, and we encourage you to co=
+mplete it at your earliest convenience.
+
+Thank you for participating and helping us create a more inclusive and supp=
+ortive environment for commuter students at Manhattan College. If you have =
+any questions or concerns, please contact me at (718) 862-7352 or by email =
+at rgray01@manhattan.edu.
+
+Best regards,
+
+--_000_CY8PR02MB959548BF9754CB369FE0BBB6F3BCACY8PR02MB9595namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered)">
+<style>=0D<!--=0D /* Font Definitions */=0D @font-face=0D	{font-family:"Cam=
+bria Math";=0D	panose-1:2 4 5 3 5 4 6 3 2 4;}=0D@font-face=0D	{font-family:=
+Calibri;=0D	panose-1:2 15 5 2 2 2 4 3 2 4;}=0D /* Style Definitions */=0D p=
+.MsoNormal, li.MsoNormal, div.MsoNormal=0D	{margin:0in;=0D	font-size:12.0pt=
+;=0D	font-family:"Calibri",sans-serif;}=0Da:link, span.MsoHyperlink=0D	{col=
+or:#0563C1;=0D	text-decoration:underline;}=0D.MsoChpDefault=0D	{font-family=
+:"Calibri",sans-serif;}=0D@page WordSection1=0D	{size:8.5in 11.0in;=0D	marg=
+in:1.0in 1.0in 1.0in 1.0in;}=0Ddiv.WordSection1=0D	{page:WordSection1;}=0D-=
+->=0D</style>
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Dear Haki,</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">We hope this letter finds you well as you navigate y=
+our academic journey at Manhattan College. As part of our ongoing commitmen=
+t to enhancing the overall student experience, we are reaching out to you t=
+o invite you to participate in a short
+ survey on employment experiences among commuter students.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">Your insights and feedback are crucial in helping us=
+ understand the unique challenges and opportunities commuter students face =
+regarding employment. By sharing your experiences, you contribute valuable =
+information that will guide us in
+ developing initiatives and support services tailored to your needs.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal"><b>Survey Details:</b></p>
+<p class=3D"MsoNormal">- Survey Link: <a href=3D"https://docs.google.com/fo=
+rms/d/e/1FAIpQLScnnMalaZe8TQT78Nhme4YBFuqQuw2pWEudNfV7D0-Jt0vJ8g/viewform?u=
+sp=3Dsf_link">
+Commuter Employment Survey</a></p>
+<p class=3D"MsoNormal">Or cut and paste the link below: <a href=3D"https://=
+docs.google.com/forms/d/e/1FAIpQLScnnMalaZe8TQT78Nhme4YBFuqQuw2pWEudNfV7D0-=
+Jt0vJ8g/viewform?usp=3Dsf_link">
+https://docs.google.com/forms/d/e/1FAIpQLScnnMalaZe8TQT78Nhme4YBFuqQuw2pWEu=
+dNfV7D0-Jt0vJ8g/viewform?usp=3Dsf_link.</a></p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">- Survey Duration: <u>Under 4 minutes</u></p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">Your participation in this survey is voluntary, and =
+your responses will remain confidential. The aggregated data will be used s=
+olely for research purposes and will be reported in a way that ensures the =
+anonymity of all participants.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">The survey will be open until <b><u>December 16, 202=
+3</u></b>, and we encourage you to complete it at your earliest convenience=
+.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">Thank you for participating and helping us create a =
+more inclusive and supportive environment for commuter students at Manhatta=
+n College. If you have any questions or concerns, please contact me at (718=
+) 862-7352 or by email at rgray01@manhattan.edu.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+<p class=3D"MsoNormal">Best regards,</p>
+</div>
+</body>
+</html>
+
+--_000_CY8PR02MB959548BF9754CB369FE0BBB6F3BCACY8PR02MB9595namp_--
