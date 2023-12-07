@@ -14,3 +14,9 @@ updates to the files. currently implemented:
 
 --UI now includes an option for the user to create a project. it prompts the user for the project details, and stores them 
   in the database. it currently prompts the user about adding emails to the project during creation, but this is not yet implemented
+  
+--option to view emails pertaining to the open project implemented. button to edit the email sketched out, but commented out for now.
+
+****BUGS****
+-projects are only showing based on who is logged in/ which project they created
+-project doesnt reset when the user logs out
