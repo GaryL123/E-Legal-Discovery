@@ -18,5 +18,6 @@ updates to the files. currently implemented:
 --option to view emails pertaining to the open project implemented. button to edit the email sketched out, but commented out for now.
 
 ****BUGS****
--projects are only showing based on who is logged in/ which project they created
--project doesnt reset when the user logs out
+--projects are only showing based on who is logged in/ which project they created
+
+--project doesnt reset when the user logs out
