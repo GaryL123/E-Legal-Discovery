@@ -1,0 +1,68 @@
+﻿<Page x:Class="Login_WPF.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Main Menu">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="WelcomeTextBlock" VerticalAlignment="Center" Grid.Column="0"/>
+            <Button Content="Log Out" HorizontalAlignment="Right" Click="Logout_Click" Margin="5"  Grid.Column="1"/>
+            <Button Content="New Project" HorizontalAlignment="Right" Click="NewProject_Click" Margin="5" Grid.Column="2"/>
+        </Grid>
+
+        <DataGrid x:Name="ProjectsDataGrid"
+          AutoGenerateColumns="False"
+          ItemsSource="{Binding Projects}"
+          IsReadOnly="True"
+          Margin="10"
+          Grid.Row="1">
+           
+
+            <!-- Style for column headers -->
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <!-- Style for cell content -->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                </Style>
+            </DataGrid.CellStyle>
+
+            <!-- Define columns -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Project Name" Binding="{Binding ProjectName}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" />
+                <DataGridTextColumn Header="Updated At" Binding="{Binding UpdatedAt}" />
+
+                <!-- Add a column for the buttons -->
+                <DataGridTemplateColumn Header="Actions" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="Open" Margin="5" Click="OpenProject_Click"/>
+                                <Button Content="Delete" Margin="5" Click="DeleteProject_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
